@@ -5,7 +5,9 @@ language: java
 git:
   depth: 10
   quiet: true
-
+arch:
+    - amd64
+    - arm64
 branches:
   only:
   - next
@@ -41,11 +43,21 @@ script:
 
 jobs:
   include:
+    
     - name: openjdk8
       jdk: openjdk8
     - name: openjdk11
       jdk: openjdk11
     - name: openjdk13
+      jdk: openjdk13
+    - arch: arm64
+      name: openjdk8
+      jdk: openjdk8
+    - arch: arm64
+      name: openjdk11
+      jdk: openjdk11
+    - arch: arm64
+      name: openjdk13
       jdk: openjdk13
 
     - name: 1.8.0_112-b16
